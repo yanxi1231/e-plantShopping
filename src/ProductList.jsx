@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
 import { addItem, removeItem, updateQuantity } from './CartSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [addedToCart, setAddedToCart] = useState({});
+    const dispatch = useDispatch();
+    const cartItems = useSelector((state) => state.cart.items);
+
 
     const plantsArray = [
         {
@@ -247,7 +251,18 @@ function ProductList({ onHomeClick }) {
         }));
     };
 
+    const calculateTotalQuantity = () => {
+        return cartItems ? cartItems.reduce((total, item) => total + item.quantity, 0) : 0;
+    };
     
+    const handleQuantityChange = (name, newQuantity) => {
+        dispatch(updateQuantity({ name, quantity: newQuantity }));
+      };
+      
+    const handleRemoveItem = (name) => {
+        dispatch(removeItem(name));
+      };
+          
     const handleHomeClick = (e) => {
         e.preventDefault();
         onHomeClick();
@@ -308,7 +323,7 @@ function ProductList({ onHomeClick }) {
                                 <div className="product-title">{plant.name}</div> {/* Display plant name */}
                                 {/* Display other plant details like description and cost */}
                                 <div className="product-description">{plant.description}</div> {/* Display plant description */}
-                                <div className="product-cost">${plant.cost}</div> {/* Display plant cost */}
+                                <div className="product-cost">{plant.cost}</div> {/* Display plant cost */}
                                 <button
                                     className="product-button"
                                     onClick={() => handleAddToCart(plant)} // Handle adding plant to cart
