@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 .landing-page {
@@ -25,7 +24,7 @@
   filter: brightness(0.8);
 }
 .content {
-  display: flex;
+  display: center;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -37,9 +36,8 @@
 }
 
 .landing_content {
- margin-top: 430px;
-  margin-left: 100px;
-  transform: translate(-50%, -50%);
+    margin: 0;
+  transform: translate(0, 0);
   z-index: 1;
   text-align: center;
   /* background-color: red; */
