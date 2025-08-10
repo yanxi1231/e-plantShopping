@@ -19,6 +19,8 @@ body {
     justify-content: space-between;
     align-items: center;
     font-size: 20px;
+    justify-content: space-between;  /* Pushes nav-section to the right */
+    display: flex;
 }
 
 .navbar .ul {
@@ -57,6 +59,20 @@ body {
     width: 100%;
     align-items: center;
     justify-content: center;
+}
+.category-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #000000;
+    text-align: center;
+    display: block;
+    width: fit-content;
+    margin: 40px auto;
+    padding: 10px 20px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+    font-family: Arial, sans-serif;
+    letter-spacing: 0.5px;
 }
 
 /* Product Card */
@@ -169,8 +185,7 @@ body {
     /* background-color: red; */
     margin-left: 27px;
     position: absolute;
-    font-size: 29px;
-
+    font-size: 10px;
 }
 .plantname_heading{
    display: flex;
