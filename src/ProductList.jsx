@@ -327,6 +327,7 @@ function ProductList({ onHomeClick }) {
                                 <button
                                     className="product-button"
                                     onClick={() => handleAddToCart(plant)} // Handle adding plant to cart
+                                    
                                 >
                                     Add to Cart
                                 </button>
